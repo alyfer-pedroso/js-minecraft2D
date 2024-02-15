@@ -7,6 +7,12 @@ class Player {
   constructor(x, y) {
     this.width = 39;
     this.height = 160;
+    this.arm = {
+      x: 0,
+      y: 0,
+      w: 21,
+      h: 63,
+    };
     this.canFall = true;
     this.invert = false;
     this.lastpos = 0;
@@ -36,10 +42,14 @@ class Player {
 
   draw() {
     if (!this.invert) {
-      createRect(this.position.x, this.position.y, this.width, this.height, "image", 0, 0, 0, 0, steveImg);
+      createRect(this.position.x, this.position.y, this.width, this.height, "image", 0, 0, 0, 0, steve_no_armsImg);
     } else {
-      createRect(this.position.x, this.position.y, this.width, this.height, "image", 0, 0, 0, 0, steveImg, this.invert);
+      createRect(this.position.x, this.position.y, this.width, this.height, "image", 0, 0, 0, 0, steve_no_armsImg, this.invert);
     }
+
+    canvasContext.save();
+    canvasContext.drawImage(steve_armImg, this.position.x + 8.5, this.position.y + 40, this.arm.w, this.arm.h);
+    canvasContext.restore();
   }
 
   groundCollision() {
@@ -108,7 +118,7 @@ class Player {
         });
       } else {
         if (scroller < grounds[grounds.length - 1].position.x + grounds[grounds.length - 1].width) {
-          scroller++;
+          scroller += speed;
           this.velocity.x = 0;
           grounds.forEach((ground) => {
             ground.velocity.x = -speed;
@@ -128,7 +138,7 @@ class Player {
         });
       } else {
         if (scroller > 0) {
-          scroller--;
+          scroller -= speed;
           this.velocity.x = 0;
           grounds.forEach((ground) => {
             ground.velocity.x = speed;
