@@ -11,6 +11,12 @@ function start() {
   canvas.addEventListener("mousemove", (e) => {
     player.armController(e);
   });
+
+  setTimeout(() => {
+    alert(
+      "-------------------------------Comandos-------------------------------\nTecla A - Esquerda\nTecla D - Direita\nTecla Shift - Correr\nTecla Espaço - Pular\nMouse Esquerdo - Quebrar Bloco"
+    );
+  }, 1000);
 }
 
 function update() {
