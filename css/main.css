@@ -3,4 +3,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(12, 24, 12);
+}
+
+canvas {
+  border-radius: 1rem;
+}
+
+canvas:hover {
+  cursor: crosshair;
 }

@@ -2,25 +2,20 @@ const canvas = document.querySelector("canvas");
 const canvasContext = canvas.getContext("2d");
 const fps = 60;
 
-let mouseX = 0;
-let mouseY = 0;
-
 let gameTick;
 
 function start() {
   drawWalls();
   player.start();
 
-  // Adicionando um event listener para atualizar mouseX e mouseY quando o mouse se move
-  canvas.addEventListener("mousemove", function (event) {
-    mouseX = event.clientX - canvas.getBoundingClientRect().left;
-    mouseY = event.clientY - canvas.getBoundingClientRect().top;
+  canvas.addEventListener("mousemove", (e) => {
+    player.armController(e);
   });
 }
 
 function update() {
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-  createRect(0, 0, canvas.width, canvas.height, "rect", "lightblue");
+  createRect(0, 0, canvas.width, canvas.height, "rect", "#7FACFF");
 
   grounds.forEach((ground) => {
     ground.update();

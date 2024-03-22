@@ -1,8 +1,8 @@
 const grassImg = new Image();
 grassImg.src = "../assets/textures/Grass2.PNG";
 
-const steveImg = new Image();
-steveImg.src = "../assets/textures/steve.png";
+const dirtImg = new Image();
+dirtImg.src = "../assets/textures/Dirt2.PNG";
 
 const steve_no_armsImg = new Image();
 steve_no_armsImg.src = "../assets/textures/steve_no_arms.png";
