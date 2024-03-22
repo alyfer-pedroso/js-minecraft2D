@@ -1,7 +1,7 @@
 class Ground {
-  constructor(x, y, type) {
-    this.width = blockSize;
-    this.height = blockSize;
+  constructor(x, y, type, w, h) {
+    this.width = w || blockSize;
+    this.height = h || blockSize;
     this.type = type;
     this.broken = false;
     this.isSelected = false;
